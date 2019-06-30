@@ -1,0 +1,28 @@
+body{
+    background: khaki;
+}
+#location{
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+.details{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+h1,h2,h3{
+    margin-left: 2.5%;
+    font-family :cursive; 
+    color: darkblue;   
+    margin-top: 3%;
+}
+h1{
+    text-align: center;
+    text-decoration-line: underline;
+    color: brown;
+    font-family :Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+td,th{
+    text-align: center;
+}

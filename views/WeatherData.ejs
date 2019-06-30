@@ -1,0 +1,108 @@
+<% include partials/header %>
+    <link rel="stylesheet" href="/WeatherData.css">
+    </head>
+<body>  
+    <h1>WEATHER DETAILS OF <%= Data["location"]["name"].toUpperCase() %></h1>
+
+    <h2>LOCATION :-</h2>
+    <table class="table table-dark" id="location">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Region</th>
+            <th scope="col">Country</th>
+            <th scope="col">Local Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><%= Data["location"]["name"]  %> </th>
+            <td><%= Data["location"]["region"]  %></td>
+            <td><%= Data["location"]["country"]  %></td>
+            <td><%= Data["location"]["localtime"]  %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>CURRENT CONDITIONS :-</h3>
+      <table class="table table-hover table-dark details">
+        <thead>
+          <tr>
+            <th scope="col">Last Updated</th>
+            <th scope="col">Temperature(C/F)</th>
+            <th scope="col">Conditions</th>
+            <th scope="col">Wind Speed(kph/mph)</th>
+            <th scope="col">Wind Degree</th>
+            <th scope="col">Wind Direction</th>
+            <th scope="col">Humidity</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><%= Data["current"]["last_updated"]  %></th>
+            <td><%= Data["current"]["temp_c"] %>(C)/<%= Data["current"]["temp_f"] %>(F)</td>
+            <td><%= Data["current"]["condition"]["text"]  %>
+             <%   var url = Data["current"]["condition"]["icon"]  %>
+                <img src=<%=url %> alt="">
+            </td>
+            <td><%= Data["current"]["wind_kph"] %>(kph)/ <%= Data["current"]["wind_mph"] %>(mph)   </td>
+            <td> <%= Data["current"]["wind_degree"] %>    </td>
+            <td> <%= Data["current"]["wind_dir"] %>   </td>
+            <td> <%= Data["current"]["humidity"] %>  </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3>FORECAST :-</h3>
+      <table class="table table-hover table-dark details">
+        <thead>
+          <tr>
+            <th scope="col">Maximum Temperature(C/F)</th>
+            <th scope="col">Minimum Temperature(C/F)</th>
+            <th scope="col">Average Temperature(C/F)</th>
+            <th scope="col">Maximum Wind Speed(kph/mph)</th>
+            <th scope="col">Total Rain(mm)</th>
+            <th scope="col">Average Humidity</th>
+            <th scope="col">Conditions</th> 
+            <th scope="col">UV Index</th>           
+        </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><%= Data["forecast"]["forecastday"][0]["day"]["maxtemp_c"] %>(C)/<%= Data["forecast"]["forecastday"][0]["day"]["maxtemp_f"] %>(F)  </th>
+            <td> <%= Data["forecast"]["forecastday"][0]["day"]["mintemp_c"] %>(C)/<%= Data["forecast"]["forecastday"][0]["day"]["mintemp_f"] %>(F)  </td>
+            <td> <%= Data["forecast"]["forecastday"][0]["day"]["avgtemp_c"] %>(C)/<%= Data["forecast"]["forecastday"][0]["day"]["avgtemp_f"] %>(F) </td>
+            <td> <%= Data["forecast"]["forecastday"][0]["day"]["maxwind_kph"] %>(kph)/<%= Data["forecast"]["forecastday"][0]["day"]["maxwind_mph"] %>(mph)  </td>
+            <td> <%= Data["forecast"]["forecastday"][0]["day"]["totalprecip_mm"] %> </td>
+            <td> <%= Data["forecast"]["forecastday"][0]["day"]["avghumidity"] %> </td>
+            <td> <%= Data["forecast"]["forecastday"][0]["day"]["condition"]["text"] %>
+              <%  var url = Data["forecast"]["forecastday"][0]["day"]["condition"]["icon"] %> 
+              <img src=<%= url %> alt="">
+            </td>
+            <td> <%= Data["forecast"]["forecastday"][0]["day"]["uv"] %>  </td>
+        </tr>
+          
+        </tbody>
+      </table>
+
+        <h3>ASTRONOMICAL INFORMATION :-</h3>
+        <table class="table table-hover table-dark details">
+            <thead>
+              <tr>
+                <th scope="col">Sunrise</th>
+                <th scope="col">Sunset</th>
+                <th scope="col">Moonrise</th>
+                <th scope="col">Moonset</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"> <%= Data["forecast"]["forecastday"][0]["astro"]["sunrise"] %>  </th>
+                <td> <%= Data["forecast"]["forecastday"][0]["astro"]["sunset"] %>  </td>
+                <td> <%= Data["forecast"]["forecastday"][0]["astro"]["moonrise"] %>  </td>
+                <td> <%= Data["forecast"]["forecastday"][0]["astro"]["moonset"] %> </td>
+              </tr>
+            </tbody>
+          </table>
+
+<% include partials/footer %>

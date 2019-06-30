@@ -1,0 +1,24 @@
+html{
+    height: 100%;
+}
+body{
+    background: url("http://p.apk4fun.com/58/60/d4/com.droid27.transparentclockweather-featured.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+form{
+    width: 30%;
+    margin-right: 35%;
+    margin-left: 35%;
+    margin-top: 20%;
+}
+button{
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 5%;
+}
+input{
+    text-align: center;
+}
