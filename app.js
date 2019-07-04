@@ -6,6 +6,8 @@ var app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
+var apiKey = "";//write your own apikey here
+
 app.get("/",function(req,res){
     res.render("home.ejs")
 })
@@ -13,7 +15,7 @@ app.get("/",function(req,res){
 app.post("/locationAPI",function(req,res){
     city = req.body.city;
     console.log("City - " + city)
-    url = "http://api.apixu.com/v1/forecast.json?key=714f3da0c9aa41a380d63653190606&q="
+    url = "http://api.apixu.com/v1/forecast.json?key=" + apiKey + "&q="
     url += city;
     request(url,function(error,response,body){
         if(!error && response.statusCode == 200){
