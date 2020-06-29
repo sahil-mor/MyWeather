@@ -3,7 +3,7 @@
                 <% var day = today.getDay(); %>
                 <% var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"]; %>
                 <% var hour = today.getHours(); %>
-                <% var todayWeatherSet; var found = false ; %>
+                <% var todayWeatherSet = data.list[0] ; var found = false ; %>
                 <% data.list.forEach( eachSet => { %> 
                         <% if(found == false){ %>
                             <% if(today.toString().slice(8,10) == eachSet.dt_txt.toString().slice(8,10)){ %> 
