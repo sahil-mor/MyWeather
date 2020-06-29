@@ -16,7 +16,6 @@ app.get("/",function(req,res){
     request(url,function(error,response,body){
         if(!error && response.statusCode == 200){
             parsedCityDetails = JSON.parse(body);
-            data = parsedCityDetails;
             res.render("index",{ data : parsedCityDetails})
         }
         else{
@@ -45,7 +44,7 @@ app.post("/weather",function(req,res){
 app.get("/*",(req,res) => {
     res.render("404error")
 })
-
-app.listen(process.env.PORT || 3000,function(){
-    console.log("Weather app server is started at 3000")
+var port = process.env.PORT || 3000
+app.listen(port,function(){
+    console.log("Weather app server is started at " + port)
 })
