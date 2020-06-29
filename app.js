@@ -2,31 +2,50 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var request = require("request");
 var app = express();
-
+app.set("view engine","ejs")
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
 var apiKey = "";//write your own apikey here
 
-app.get("/",function(req,res){
-    res.render("home.ejs")
-})
 
-app.post("/locationAPI",function(req,res){
-    city = req.body.city;
-    console.log("City - " + city)
-    url = "http://api.apixu.com/v1/forecast.json?key=" + apiKey + "&q="
-    url += city;
+app.get("/",function(req,res){
+    city = "Jind";
+    url = "http://api.openweathermap.org/data/2.5/forecast?apikey=" + apiKey + "&q="
+    url += city + "&mode=json";
     request(url,function(error,response,body){
         if(!error && response.statusCode == 200){
             parsedCityDetails = JSON.parse(body);
-            res.render("WeatherData.ejs",{Data : parsedCityDetails})
+            data = parsedCityDetails;
+            res.render("index",{ data : parsedCityDetails})
         }
-        else
-            res.send("error");
+        else{
+            console.log(error)
+            res.render("404error")
+        }
     })
 })
 
-app.listen(1000,function(){
-    console.log("Weather app server is started")
+app.post("/weather",function(req,res){
+    city = req.body.city;
+    url = "http://api.openweathermap.org/data/2.5/forecast?apikey=" + apiKey + "&q="
+    url += city + "&mode=json";
+    request(url,function(error,response,body){
+        if(!error && response.statusCode == 200){
+            parsedCityDetails = JSON.parse(body);
+            res.render("index",{ data : parsedCityDetails})
+        }
+        else{
+            console.log(error)
+            res.render("404error")
+        }
+    })
+})
+
+app.get("/*",(req,res) => {
+    res.render("404error")
+})
+
+app.listen(3000,function(){
+    console.log("Weather app server is started at 3000")
 })
