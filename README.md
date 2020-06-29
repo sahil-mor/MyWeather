@@ -17,6 +17,7 @@ NodeJs and https://openweathermap.org/ apikey<br />
 Deployed at https://heroku.com<br />
 git init<br />
 heroku git:remote -a yourAppName <br />
+For update - <br />
 git add .<br />
 git commit -m "deployment to heroku"<br />
 git push heroku master<br />
