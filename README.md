@@ -1,5 +1,5 @@
 # MyWeather
-A full stack progressive web app which takes the city from user tells the forecast of that next 5 days. <br />
+A full stack progressive web app which takes the city from user and show weather forecast of that next 5 days. <br />
 
 # Getting Started
 Fork this repository.<br />
