@@ -25,7 +25,7 @@
 								<div class="forecast-content">
 									<div class="location"> <%= data.city.name %> </div>
 									<div class="degree">
-										<div class="num"> <%= (todayWeatherSet.main.temp - 273.15).toFixed(1) %> <sup>o</sup>C</div>
+										<div class="num"> <%= (todayWeatherSet.main.temp - 273.15).toFixed(0) %> <sup>o</sup>C</div>
 										<div class="forecast-icon">
 											<img src="images/icons/icon-1.svg" alt="" width=90>
 										</div>	
@@ -51,8 +51,8 @@
                                                 <div class="forecast-icon">
                                                     <img src="images/icons/icon-<%=counter+1%>.svg" alt="" width=48>
                                                 </div>
-                                                <div class="degree"> <%= (eachSet.main.temp - 273.15).toFixed(1) %> <sup>o</sup>C</div>
-                                                <small> <%= (eachSet.main.feels_like - 273.15).toFixed(1) %><sup>o</sup></small>
+                                                <div class="degree"> <%= (eachSet.main.temp - 273.15).toFixed(0) %> <sup>o</sup>C</div>
+                                                <small> <%= (eachSet.main.feels_like - 273.15).toFixed(0) %><sup>o</sup></small>
                                             </div>
                                         </div>
                                         <% counter = counter + 1%>
