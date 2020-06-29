@@ -14,7 +14,10 @@ NodeJs and https://openweathermap.org/ apikey<br />
 <br />
 
 # Deployment To Heroku
-Deployed at https://heroku.com<br />
+Deployement at https://heroku.com<br />
+<br />
+You must be logged in your heroku cli.If you are not looged in then run - heroku login <br />
+After login you can proceed as follows. <br />
 git init<br />
 heroku git:remote -a yourAppName <br />
 For update - <br />
