@@ -15,6 +15,7 @@ NodeJs and https://openweathermap.org/ apikey<br />
 
 # Deployment To Heroku
 Deployement at https://heroku.com<br />
+Deployed at https://myyweather.herokuapp.com/
 <br />
 You must be logged in your heroku cli.If you are not looged in then run - heroku login <br />
 After login you can proceed as follows. <br />
