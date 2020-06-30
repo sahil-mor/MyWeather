@@ -32,7 +32,7 @@ git push heroku master<br />
 Express - The web framework used.<br />
 NodeJs - Server Environment.<br />
 Request - Module for handling api requests..<br />
-
+OpenWeatherApp - API used.<br />
 <br />
 
 # Author
