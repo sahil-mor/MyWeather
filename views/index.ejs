@@ -1,5 +1,10 @@
 <% include ./partials/header %> 
-                <% var today = new Date();  %>
+                <% var currentTime = new Date();  %>
+                <% var currentOffset = currentTime.getTimezoneOffset(); %>
+                <% var ISTOffset = 330;   // IST offset UTC +5:30 %>
+                <% var today = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);%>
+                <% var hoursIST = today.getHours()%>
+                <% var minutesIST = today.getMinutes()%>
                 <% var day = today.getDay(); %>
                 <% var daylist = ["Sunday","Monday","Tuesday","Wednesday ","Thursday","Friday","Saturday"]; %>
                 <% var hour = today.getHours(); %>
@@ -14,6 +19,7 @@
                             <%} %>
                         <%} %>
                 <% } ) %>
+                <% console.log(today + " -" + currentTime) %>
 				<div class="forecast-table">
 					<div class="container">
 						<div class="forecast-container">
