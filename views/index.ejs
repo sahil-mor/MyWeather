@@ -12,7 +12,9 @@
                 <% data.list.forEach( eachSet => { %> 
                         <% if(found == false){ %>
                             <% if(today.toString().slice(8,10) == eachSet.dt_txt.toString().slice(8,10)){ %> 
-                                <% if(hour >= eachSet.dt_txt.toString().slice(11,13)){ %> 
+                                <% if(hour-3 >= eachSet.dt_txt.toString().slice(11,13)){ %> 
+                                    
+                                <%}else{ %> 
                                     <% todayWeatherSet = eachSet %>    
                                     <% found = true %>
                                 <%} %>
@@ -25,7 +27,7 @@
 							<div class="today forecast">
 								<div class="forecast-header">
 									<div class="day"> <%= daylist[day] %></div>
-									<div class="date"> <%= today.toString().slice(4,11) %> </div>
+									<div class="date"> <%= today.toString().slice(4,11) %> (<%=todayWeatherSet.dt_txt.toString().slice(11,19) %>) </div>
 								</div> <!-- .forecast-header -->
 								<div class="forecast-content">
 									<div class="location"> <%= data.city.name %> </div>
@@ -45,12 +47,13 @@
                             <% data.list.forEach( eachSet => { %> 
                                 <% var nextDay = new Date(); %>
                                 <% nextDay.setDate(new Date().getDate()+counter); %>
-                                <% if(nextDay.toString().slice(8,10) == eachSet.dt_txt.toString().slice(8,10)){ %> 
-                                    <% if(hour >= eachSet.dt_txt.toString().slice(11,13)){ %> 
+                                <% if(nextDay.toString().slice(8,10) == eachSet.dt_txt.toString().slice(8,10)){ %>
+                                    <% if(hour-3 >= eachSet.dt_txt.toString().slice(11,13)){ %>
+                                    <%}else{ %> 
                                         <% var day = nextDay.getDay(); %>
                                         <div class="forecast">
                                             <div class="forecast-header">
-                                                <div class="day"> <%= daylist[day] %> </div>
+                                                <div class="day"> <%= daylist[day] %> (<%=eachSet.dt_txt.toString().slice(11,19) %>) </div>
                                             </div> <!-- .forecast-header -->
                                             <div class="forecast-content">
                                                 <div class="forecast-icon">

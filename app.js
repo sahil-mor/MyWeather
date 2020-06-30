@@ -6,7 +6,7 @@ app.set("view engine","ejs")
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
-var apiKey = "035d94ce0a6f998cad71bd21e9366c83";//write your own apikey here
+var apiKey = "";//write your own apikey here
 
 
 app.get("/",function(req,res){
